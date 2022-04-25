@@ -57,6 +57,11 @@ Route::get('/edit-game/{gameid}',[GamesController::class,'editOne']);
 
 Route::post('/update-game/{userid}',[GamesController::class,'update']);
 
+// PERSONAL
+
+Route::get('/new-personal',function(){
+    return view('personal.create-personal');
+});
 
 
 Route::fallback(function(){
