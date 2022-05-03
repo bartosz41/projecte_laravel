@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\GamesController;
+use App\Http\Controllers\PersonalController;
+use App\Http\Controllers\RoomsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +63,38 @@ Route::post('/update-game/{userid}',[GamesController::class,'update']);
 
 Route::get('/new-personal',function(){
     return view('personal.create-personal');
+});
+
+Route::post('/create-personal',[PersonalController::class,'store']);
+
+Route::get('/staff-list',[PersonalController::class,'all']);
+
+Route::get('/delete-staff/{staffid}',[PersonalController::class,'deleteOne']);
+
+Route::get('/edit-staff/{staffid}',[PersonalController::class,'editOne']);
+
+Route::post('/update-staff/{staffid}',[PersonalController::class,'update']);
+
+// ROOM
+
+Route::get('/new-room',function(){
+    return view('rooms.create-room');
+});
+
+Route::post('/create-room',[RoomsController::class,'store']);
+
+Route::get('/room-list',[RoomsController::class,'all']);
+
+Route::get('/delete-room/{roomid}',[RoomsController::class,'deleteOne']);
+
+Route::get('/edit-room/{roomid}',[RoomsController::class,'editOne']);
+
+Route::post('/update-room/{roomid}',[RoomsController::class,'update']);
+
+// ADMIN
+
+Route::get('/admin',function(){
+    return view('admin.admin');
 });
 
 

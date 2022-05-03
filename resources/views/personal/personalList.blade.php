@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-@if(sizeof($users) < 1)
+@if(sizeof($staff) < 1)
     <div class="alert alert-danger">
         <ul class="list-group">
             <li class="list-group-item">
@@ -11,25 +11,24 @@
     </div>
  @endif
 
-<h1>Users list</h1>
+<h1>Staff list</h1>
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">DNI</th>
       <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Actions</th>
+      <th scope="col">Surname</th>
     </tr>
   </thead>
   <tbody>
-    @foreach($users as $user)
+    @foreach($staff as $personal)
         <tr>
-            <th scope="row">{{$user->id}}</th>
-            <td>{{$user->name}}</td>
-            <td>{{$user->email}}</td>
+            <th scope="row">{{$personal->dni}}</th>
+            <td>{{$personal->name}}</td>
+            <td>{{$personal->surname}}</td>
             <td>
-                <a href="/edit-user/{{$user->id}}" class="btn btn-primary">Edit</a>
-                <a href="/delete-user/{{$user->id}}" class="btn btn-danger">Delete</a>
+                <a href="/edit-staff/{{$personal->id}}" class="btn btn-primary">Edit</a>
+                <a href="/delete-staff/{{$personal->id}}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
     @endforeach

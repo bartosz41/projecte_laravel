@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
 <style>
         * {box-sizing: border-box}
 
@@ -58,6 +57,8 @@
         }
     </style>
 
+    <a href="/staff-list/" class="btn btn-secondary">Back to list</a><br>
+
     @if($errors->any())
     <div class="alert alert-danger">
         <ul class="list-group">
@@ -70,23 +71,23 @@
     </div>
     @endif
 
-<form action="/create-personal" method="POST">
+  <form action="/update-staff/{{$staff->id}}" method="POST">
   @csrf
   <div class="container">
-    <h1>Create staff</h1>
+    <h1>Edit {{$staff->name}}</h1>
     <hr>
 
+    <input type="hidden" name="staff_id" value="{{$staff->id}}">
     <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Enter Name" name="name" id="name" required>
+    <input value="{{old('name',$staff->name)}}" type="text" placeholder="Enter Name" name="name" id="name" >
 
     <label for="surname"><b>Surname</b></label>
-    <input type="text" placeholder="Enter Surname" name="surname" id="surname" required>
+    <input value="{{old('surname',$staff->surname)}}" type="text" placeholder="Enter Surname" name="surname" id="surname" >
 
-    <label for="dni"><b>DNI</b></label>
-    <input type="text" placeholder="Enter DNI" name="dni" id="dni" required>
+    <label for="players"><b>DNI</b></label>
+    <input value="{{old('dni',$staff->players)}}" type="text" placeholder="DNI" name="dni" id="dni">
 
-
-    <button type="submit" class="registerbtn">Create</button>
+    <button type="submit" class="registerbtn">Submit</button>
   </div>
 </form>
 @endsection

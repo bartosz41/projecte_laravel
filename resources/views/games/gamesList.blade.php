@@ -1,6 +1,16 @@
 @extends('layouts.app')
 @section('content')
 
+@if(sizeof($games) < 1)
+    <div class="alert alert-danger">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span>No results found.</span>
+            </li>
+        </ul>
+    </div>
+ @endif
+
 <h1>Games list</h1>
 <table class="table">
   <thead>

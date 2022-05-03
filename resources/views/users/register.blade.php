@@ -81,6 +81,18 @@
     <label for="name"><b>Name</b></label>
     <input type="text" placeholder="Enter Name" name="name" id="name" required>
 
+    <label for="name"><b>DNI</b></label>
+    <input type="text" placeholder="Enter DNI" name="dni" id="dni">
+
+    <label for="name"><b>Organization</b></label>
+    <input type="text" placeholder="Enter Organization" name="organization" id="organization">
+
+    <label for="name"><b>Phone Number</b></label>
+    <input type="text" placeholder="Enter Phone" name="phone" id="phone">
+
+    <label for="name"><b>Phone Country</b></label>
+    <input type="text" placeholder="Enter Country" name="country" id="country">
+
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 

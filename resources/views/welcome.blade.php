@@ -1,8 +1,4 @@
 @extends('layouts.app')
 @section('content')
-    <a href="new-game/">create game</a><br>
-    <a href="new-personal/">create personal</a><br>
-    <a href="show-user/1">show user</a><br>
-    <a href="user-list/">show all users</a><br>
-    <a href="game-list/">show all games</a><br>
+    <a href="admin/">go to admin view</a>
 @endsection
