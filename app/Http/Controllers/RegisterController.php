@@ -38,6 +38,18 @@ class RegisterController extends Controller
         if(isset($data['password'])){
             $user->password = $data['password'];
         }
+        if(isset($data['dni'])){
+            $user->dni = $data['dni'];
+        }
+        if(isset($data['organization'])){
+            $user->organization = $data['organization'];
+        }
+        if(isset($data['phone'])){
+            $user->phone = $data['phone'];
+        }
+        if(isset($data['country'])){
+            $user->country = $data['country'];
+        }
         $user->save();
 
         return redirect('/user-list');
@@ -50,6 +62,10 @@ class RegisterController extends Controller
         $user = new User();
         $user->name=$req['name'];
         $user->email=$req['email'];
+        $user->dni=$req['dni'];
+        $user->organization=$req['organization'];
+        $user->phone=$req['phone'];
+        $user->country=$req['country'];
         if(isset($req['psw'])){
             if($req['psw'] == $req['psw-repeat']){
                 $user->password=$req['psw'];

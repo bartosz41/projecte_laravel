@@ -84,6 +84,18 @@
     <label for="name"><b>Name</b></label>
     <input value="{{old('name',$user->name)}}" type="text" placeholder="Enter Name" name="name" id="name" >
 
+    <label for="dni"><b>DNI</b></label>
+    <input value="{{old('dni',$user->dni)}}" type="text" placeholder="Enter DNI" name="dni" id="dni" >
+
+    <label for="name"><b>Organization</b></label>
+    <input value="{{old('organization',$user->organization)}}" type="text" placeholder="Enter Organization" name="organization" id="organization" >
+
+    <label for="phone"><b>Phone</b></label>
+    <input value="{{old('phone',$user->phone)}}" type="text" placeholder="Enter Phone" name="phone" id="phone" >
+
+    <label for="country"><b>Country</b></label>
+    <input value="{{old('country',$user->country)}}" type="text" placeholder="Enter Country" name="country" id="country" >
+
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" id="psw" >
 

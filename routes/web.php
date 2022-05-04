@@ -77,11 +77,7 @@ Route::post('/update-staff/{staffid}',[PersonalController::class,'update']);
 
 // ROOM
 
-Route::get('/new-room',function(){
-    return view('rooms.create-room');
-});
-
-Route::post('/create-room',[RoomsController::class,'store']);
+Route::get('/new-room',[RoomsController::class,'createAndRedirect']);
 
 Route::get('/room-list',[RoomsController::class,'all']);
 

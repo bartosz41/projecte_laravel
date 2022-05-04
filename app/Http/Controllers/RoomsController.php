@@ -39,18 +39,13 @@ class RoomsController extends Controller
     }
 
     public function all(){
-        $room=Room::all();
-        return view('room.roomList')->with('room',$room);
+        $rooms=Room::all();
+        return view('rooms.roomList')->with('rooms',$rooms);
     }
 
-    public function store(Request $request){
-        $validated=$request->validate(['name'=>'required','surname'=>'required','dni'=>'required']);
+    public function createAndRedirect(Request $request){
 
-        $req = request()->all();
         $room = new Room();
-        $room->name=$req['name'];
-        $room->surname=$req['surname'];
-        $room->dni=$req['dni'];
 
         $room->save();
         return redirect('/room-list');

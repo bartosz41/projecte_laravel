@@ -43,26 +43,17 @@ button:hover, a:hover {
       @isset($user)
         {{$user->name}}
       @endisset
-      @empty($user)
-        No va
-      @endempty
   </h1>
 
   <p class="title">
     @isset($user)
         {{$user->email}}
     @endisset
-    @empty($user)
-        No va
-    @endempty
   </p>
   <p>
     @isset($user)
         {{$user->password}}
     @endisset
-    @empty($user)
-        No va
-    @endempty
   </p>
 
 </div>
