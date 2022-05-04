@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\GamesController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\RoomsController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,15 +22,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// LOGIN
+
+Route::get('/login', function () {
+    return view('users.login');
+});
+
 // USERS
 
 Route::get('/register', function () {
     return view('users.register');
 });
 
-Route::get('/login', function () {
-    return view('users.login');
-});
 
 Route::post('/create-user',[RegisterController::class,'store']);
 
