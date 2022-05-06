@@ -2,76 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use App\Http\Requests\RegisterRequest;
 
 class RegisterController extends Controller
 {
-    public function all(){
-        $users=User::all();
-        return view('users.usersList')->with('users',$users);
+    /**
+     * Display register page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show()
+    {
+        return view('auth.register');
     }
 
-    public function showOne($userid){
-        return view('users.showUser')->with(['user'=>User::find($userid)]);
-    }
+    /**
+     * Handle account registration request
+     *
+     * @param RegisterRequest $request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function register(RegisterRequest $request)
+    {
+        $user = User::create($request->validated());
+        var_dump($user);
+        auth()->login($user);
 
-    public function editOne($userid){
-        return view('users.edit')->with(['user'=>User::find($userid)]);
-    }
-
-    public function deleteOne($userid){
-        $user = User::find($userid);
-        $user->delete();
-        return redirect('/user-list');
-    }
-
-    public function update(Request $request,$userid){
-        $data = $request->all();
-        $user = User::find($userid);
-        if(isset($data['name'])){
-            $user->name = $data['name'];
-        }
-        if(isset($data['email'])){
-            $user->email = $data['email'];
-        }
-        if(isset($data['password'])){
-            $user->password = $data['password'];
-        }
-        if(isset($data['dni'])){
-            $user->dni = $data['dni'];
-        }
-        if(isset($data['organization'])){
-            $user->organization = $data['organization'];
-        }
-        if(isset($data['phone'])){
-            $user->phone = $data['phone'];
-        }
-        if(isset($data['country'])){
-            $user->country = $data['country'];
-        }
-        $user->save();
-
-        return redirect('/user-list');
-    }
-
-    public function store(Request $request){
-        $validated=$request->validate(['name'=>'required','email'=>'required','psw'=>'required']);
-
-        $req = request()->all();
-        $user = new User();
-        $user->name=$req['name'];
-        $user->email=$req['email'];
-        $user->dni=$req['dni'];
-        $user->organization=$req['organization'];
-        $user->phone=$req['phone'];
-        $user->country=$req['country'];
-        if(isset($req['psw'])){
-            if($req['psw'] == $req['psw-repeat']){
-                $user->password=$req['psw'];
-            }
-        }
-        $user->save();
-        return redirect('/user-list');
+        return redirect('/')->with('success', "Account successfully registered.");
     }
 }
