@@ -7,6 +7,12 @@ use App\Models\Game;
 
 class GamesController extends Controller
 {
+    public function get(Request $request)
+    {
+        $games=Game::all();
+        return response()->json($games);
+    }
+
     public function all(){
         $games=Game::all();
         return view('games.gamesList')->with('games',$games);

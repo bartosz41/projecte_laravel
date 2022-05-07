@@ -8,8 +8,13 @@
         @endauth
 
         @guest
-        <h1>Homepage</h1>
-        <p class="lead">Your viewing the home page. Please login to view the restricted data.</p>
+        <h1>Games</h1>
+        <p class="lead">Down here you can see all the games.</p>
         @endguest
     </div>
+    @guest
+    <div id="app">
+        <home-component></home-component>
+    </div>
+    @endguest
 @endsection

@@ -9,7 +9,6 @@ use App\Http\Requests\RegisterRequest;
 class RegisterController extends Controller
 {
     /**
-     * Display register page.
      *
      * @return \Illuminate\Http\Response
      */
@@ -19,7 +18,6 @@ class RegisterController extends Controller
     }
 
     /**
-     * Handle account registration request
      *
      * @param RegisterRequest $request
      *
@@ -28,7 +26,7 @@ class RegisterController extends Controller
     public function register(RegisterRequest $request)
     {
         $user = User::create($request->validated());
-        var_dump($user);
+        return $request;
         auth()->login($user);
 
         return redirect('/')->with('success', "Account successfully registered.");
