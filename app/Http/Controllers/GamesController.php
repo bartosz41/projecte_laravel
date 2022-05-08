@@ -4,13 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Game;
+use App\Models\User;
 
 class GamesController extends Controller
 {
     public function get(Request $request)
     {
         $games=Game::all();
-        return response()->json($games);
+        $games_valorations = [];
+        foreach($games as $key => $game){
+            $games_valorations[$key]['game'] = $game;
+            $games_valorations[$key]['valorations'] = $game->valorations;
+            foreach($games_valorations[$key]['valorations'] as $valoration){
+                $client_id = $valoration->client_id;
+                $client = User::find($client_id);
+                $valoration['client_name'] = $client->name;
+            }
+        }
+        return response()->json($games_valorations);
     }
 
     public function all(){

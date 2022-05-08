@@ -6,6 +6,7 @@ use App\Http\Controllers\GamesController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
 // USERS
 
+Route::get('/show-user/{userid}',[UsersController::class,'show_user']);
+
+Route::get('/edit-user/{userid}',[UsersController::class,'edit_user']);
+
+Route::post('/save-edit-user/{userid}',[UsersController::class,'save_edit_user']);
+
+Route::get('/delete-user/{userid}',[UsersController::class,'delete_user']);
+
 // GAMES
 
 Route::get('/new-game',function(){
@@ -61,7 +70,7 @@ Route::get('/delete-game/{gameid}',[GamesController::class,'deleteOne']);
 
 Route::get('/edit-game/{gameid}',[GamesController::class,'editOne']);
 
-Route::post('/update-game/{userid}',[GamesController::class,'update']);
+Route::post('/update-game/{gameid}',[GamesController::class,'update']);
 
 // PERSONAL
 
