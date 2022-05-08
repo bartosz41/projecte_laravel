@@ -47,7 +47,12 @@
         </div>
         <div class="col-md-6 form-group form-floating mb-3">
             <label for="floatingName" style="margin-left: 5px">Finished</label>
-            <input class="" type="checkbox" name="finished" value="false">
+            @if($reserve->finished === 0)
+                <input class="" type="checkbox" name="finished" value="false">
+            @endif
+            @if($reserve->finished === 1)
+                <input class="" type="checkbox" name="finished" value="true">
+            @endif
         </div>
     </div>
     <button class="btn btn-lg btn-success" style="width:20%;" type="submit">Save</button>

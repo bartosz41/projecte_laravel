@@ -33,7 +33,12 @@ class ReserveController extends Controller
             $reserve->room_id = $data['room_id'];
         }
         if(isset($data['finished'])){
-            $reserve->finished = $data['finished'];
+            if($data['finished']){
+                $reserve->finished = 1;
+            }else{
+                $reserve->finished = 0;
+            }
+            
         }
         $reserve->save();
         return redirect('/reserve-list-all');

@@ -26,7 +26,7 @@ return new class extends Migration
             $table->text('country')->nullable();
             $table->text('name')->nullable();
             $table->integer('validated')->nullable()->default(0);
-            $table->boolean('finished')->nullable()->default(0);
+            $table->integer('finished')->nullable()->default(0);
             $table->text('player_names')->nullable();
             $table->datetime('date')->nullable();
             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
