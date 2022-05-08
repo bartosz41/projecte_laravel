@@ -16,8 +16,8 @@ class GamesController extends Controller
             $games_valorations[$key]['game'] = $game;
             $games_valorations[$key]['valorations'] = $game->valorations;
             foreach($games_valorations[$key]['valorations'] as $valoration){
-                $client_id = $valoration->client_id;
-                $client = User::find($client_id);
+                $user_id = $valoration->user_id;
+                $client = User::find($user_id);
                 $valoration['client_name'] = $client->name;
             }
         }

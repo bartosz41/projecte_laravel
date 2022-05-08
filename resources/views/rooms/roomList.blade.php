@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-master')
 @section('content')
 
 @if(sizeof($rooms) < 1)
@@ -11,27 +11,35 @@
     </div>
  @endif
 
-<h1>Rooms list</h1>
+ <h3 style="margin-top: 20px">Rooms</h3>
+
+ <a class="btn btn-lg btn-primary" href="/new-room" style="width:20%;" type="submit">New Room +</a>
+
+
 <table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Staff Name</th>
-      <th scope="col">Current Game</th>
-      <th scope="col">Action</th>
+      <th scope="col">Game_ID</th>
+      <th scope="col">Staff_ID</th>
+      <th scope="col">Image</th>
     </tr>
   </thead>
   <tbody>
     @foreach($rooms as $room)
         <tr>
             <th scope="row">{{$room->id}}</th>
-            <td>{{$room->id}}</td>
-            <td>{{$room->id}}</td>
+            <td>{{$room->game_id}}</td>
+            <td>{{$room->staff_id}}</td>
             <td>
-                <a href="/delete-game/{{$room->id}}" class="btn btn-danger">Delete</a>
+              <img style="max-height:50px;" src="{{$room->image}}">
+              {{$room->image}}</td>
+            <td>
+                <a href="/edit-room/{{$room->id}}" class="btn btn-primary">Edit</a>
+                <a href="/delete-room/{{$room->id}}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
-    @endforeach
+      @endforeach
   </tbody>
 </table>
 

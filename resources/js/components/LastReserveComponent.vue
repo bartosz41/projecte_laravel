@@ -1,7 +1,7 @@
 <template>
-    <div>
-        
-    </div>
+<div>
+    <p>{{last_template}}</p>
+</div>
 </template>
 
 <script>
@@ -11,11 +11,11 @@
         },
         data(){
             return{
-                user : []
+                last_reserve : []
             }
         },
         created(){
-            axios.get('/api/user/'+window.posts).then(response => this.user = response.data);
+            axios.get('/api/last-reserve').then(response => this.last_reserve = response.data);
         }
     }
 </script>

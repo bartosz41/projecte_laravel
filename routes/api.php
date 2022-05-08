@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GamesController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\RoomsController;
+use App\Http\Controllers\ReserveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,5 +23,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('games',[GamesController::class,'get']);
+
+Route::get('room-images',[RoomsController::class,'get_images']);
+
+Route::get('last-reserve',[ReserveController::class,'get_last']);
 
 Route::get('user/{userid}',[UsersController::class,'get']);

@@ -7,6 +7,8 @@ use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ReserveController;
+use App\Http\Controllers\ValorationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +22,7 @@ use App\Http\Controllers\UsersController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.index');
 });
 
 Route::group(['namespace' => 'App\Http\Controllers'], function()
@@ -46,15 +48,47 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
 // LOGIN
 
+// EXPERIENCES
+
+Route::post('/save-valoration',[ValorationController::class,'save_valoration']);
+
 // USERS
 
 Route::get('/show-user/{userid}',[UsersController::class,'show_user']);
 
 Route::get('/edit-user/{userid}',[UsersController::class,'edit_user']);
 
+Route::get('/users-list',[UsersController::class,'all']);
+
+Route::get('/edit-user-admin/{userid}',[UsersController::class,'edit_user_admin']);
+
+Route::post('/update-user-admin/{userid}',[UsersController::class,'update_user_admin']);
+
 Route::post('/save-edit-user/{userid}',[UsersController::class,'save_edit_user']);
 
 Route::get('/delete-user/{userid}',[UsersController::class,'delete_user']);
+
+// RESERVES
+
+Route::get('/reserve-list-all',[ReserveController::class,'all_admin']);
+
+Route::get('/reserve',function(){
+    return view('reserves.create-reserve');
+});
+
+Route::post('/validate-reserve-save/{reserveid}',[ReserveController::class,'validate_admin_save']);
+
+Route::get('/validate-reserve/{reserveid}',[ReserveController::class,'validate_admin']);
+
+Route::post('/create-reserve/{clientid}',[ReserveController::class,'store']);
+
+Route::get('/reserve-list/{clientid}',[ReserveController::class,'all']);
+
+Route::post('/save-reserve/{reserveid}',[ReserveController::class,'configure']);
+
+Route::get('/detail-reserve/{reserveid}',[ReserveController::class,'showOne']);
+
+Route::get('/delete-reserve/{reserveid}',[ReserveController::class,'delete']);
 
 // GAMES
 

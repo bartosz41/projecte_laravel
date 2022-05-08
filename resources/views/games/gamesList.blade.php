@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.app-master')
+
 @section('content')
 
 @if(sizeof($games) < 1)
@@ -11,19 +12,22 @@
     </div>
  @endif
 
-<h1>Games list</h1>
+<h3 style="margin-top: 20px">Games</h3>
+
+<a class="btn btn-lg btn-primary" href="/new-game" style="width:20%;" type="submit">New Game +</a>
+
 <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Players</th>
-      <th scope="col">Price</th>
-      <th scope="col">Image</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach($games as $game)
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Players</th>
+        <th scope="col">Price</th>
+        <th scope="col">Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach($games as $game)
         <tr>
             <th scope="row">{{$game->id}}</th>
             <td>{{$game->name}}</td>
@@ -37,8 +41,8 @@
                 <a href="/delete-game/{{$game->id}}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
-    @endforeach
-  </tbody>
-</table>
+      @endforeach
+      </tbody>
+  </table>
 
 @endsection

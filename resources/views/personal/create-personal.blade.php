@@ -1,62 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.app-master')
 @section('content')
-
-<style>
-        * {box-sizing: border-box}
-
-        /* Add padding to containers */
-        .container {
-        padding: 16px;
-        }
-
-        /* Full-width input fields */
-        input[type=text], input[type=number] {
-        width: 100%;
-        padding: 15px;
-        margin: 5px 0 22px 0;
-        display: inline-block;
-        border: none;
-        background: #f1f1f1;
-        }
-
-        input[type=text]:focus, input[type=number]:focus {
-        background-color: #ddd;
-        outline: none;
-        }
-
-        /* Overwrite default styles of hr */
-        hr {
-        border: 1px solid #f1f1f1;
-        margin-bottom: 25px;
-        }
-
-        /* Set a style for the submit/register button */
-        .registerbtn {
-        background-color: #04AA6D;
-        color: white;
-        padding: 16px 20px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-        opacity: 0.9;
-        }
-
-        .registerbtn:hover {
-        opacity:1;
-        }
-
-        /* Add a blue text color to links */
-        a {
-        color: dodgerblue;
-        }
-
-        /* Set a grey background color and center the text of the "sign in" section */
-        .signin {
-        background-color: #f1f1f1;
-        text-align: center;
-        }
-    </style>
 
     @if($errors->any())
     <div class="alert alert-danger">
@@ -72,21 +15,36 @@
 
 <form action="/create-personal" method="POST">
   @csrf
-  <div class="container">
+  <div class="container" style="margin-top:20px;">
     <h1>Create staff</h1>
     <hr>
 
-    <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Enter Name" name="name" id="name" required>
-
-    <label for="surname"><b>Surname</b></label>
-    <input type="text" placeholder="Enter Surname" name="surname" id="surname" required>
-
-    <label for="dni"><b>DNI</b></label>
-    <input type="text" placeholder="Enter DNI" name="dni" id="dni" required>
-
-
-    <button type="submit" class="registerbtn">Create</button>
+    <div class="form-group form-floating mb-3" style="width:40%;">
+      <input name="name" class="form-control" type="text">
+      <label for="floatingName">Name</label>
+      @if ($errors->has('name'))
+          <span class="text-danger text-left">{{ $errors->first('name') }}</span>
+      @endif
   </div>
+
+  <div class="form-group form-floating mb-3" style="width:40%;">
+    <input name="surname" class="form-control" type="text">
+    <label for="floatingName">Surname</label>
+    @if ($errors->has('surname'))
+        <span class="text-danger text-left">{{ $errors->first('surname') }}</span>
+    @endif
+</div>
+
+<div class="form-group form-floating mb-3" style="width:40%;">
+  <input name="dni" class="form-control" type="text">
+  <label for="floatingName">DNI</label>
+  @if ($errors->has('dni'))
+      <span class="text-danger text-left">{{ $errors->first('dni') }}</span>
+  @endif
+</div>
+
+
+<button class="btn btn-lg btn-primary" style="width:20%;" type="submit">Create</button>
+</div>
 </form>
 @endsection

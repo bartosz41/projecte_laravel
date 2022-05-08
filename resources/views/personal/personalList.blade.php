@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-master')
 @section('content')
 
 @if(sizeof($staff) < 1)
@@ -11,7 +11,10 @@
     </div>
  @endif
 
-<h1>Staff list</h1>
+<h3 style="margin-top: 20px">Staff</h3>
+
+<a class="btn btn-lg btn-primary" href="/new-personal" style="width:20%;" type="submit">Add Staff +</a>
+
 <table class="table">
   <thead>
     <tr>
@@ -31,7 +34,7 @@
                 <a href="/delete-staff/{{$personal->id}}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
-    @endforeach
+      @endforeach
   </tbody>
 </table>
 

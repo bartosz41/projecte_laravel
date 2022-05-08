@@ -7,6 +7,17 @@ use App\Models\Room;
 
 class RoomsController extends Controller
 {
+
+    public function get_images(Request $request)
+    {
+        $room_images = [];
+        $rooms = Room::all();
+        foreach($rooms as $room){
+            $room_images[] = $room->image;
+        }
+        return response()->json($room_images);
+    }
+
     public function showOne($roomid){
         return view('rooms.show')->with(['room'=>Room::find($roomid)]);
     }
@@ -24,14 +35,8 @@ class RoomsController extends Controller
     public function update(Request $request,$roomid){
         $data = $request->all();
         $room = Room::find($roomid);
-        if(isset($data['dni'])){
-            $room->dni = $data['dni'];
-        }
-        if(isset($data['name'])){
-            $room->name = $data['name'];
-        }
-        if(isset($data['surname'])){
-            $room->surname = $data['surname'];
+        if(isset($data['image'])){
+            $room->image = $data['image'];
         }
         $room->save();
 

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-master')
 @section('content')
 
 <style>
@@ -76,22 +76,39 @@
     <h1>Create a game</h1>
     <hr>
 
-    <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Enter Name" name="name" id="name" required>
+    <div class="form-group form-floating mb-3" style="width:40%;">
+        <input name="name" class="form-control" type="text">
+        <label for="floatingName">Name</label>
+        @if ($errors->has('name'))
+            <span class="text-danger text-left">{{ $errors->first('name') }}</span>
+        @endif
+    </div>
 
-    <label for="image"><b>Image (URL)</b></label>
-    <input type="text" id="image" name="image" placeholder="Image">
-    <br>
-    <br>
+    <div class="form-group form-floating mb-3" style="width:40%;">
+        <input name="image" class="form-control" type="text">
+        <label for="floatingName">Image (URL)</label>
+        @if ($errors->has('image'))
+            <span class="text-danger text-left">{{ $errors->first('image') }}</span>
+        @endif
+    </div>
 
-    <label for="players"><b>Players</b></label>
-    <input type="number" placeholder="Players" name="players" id="players" required>
-        <br>
-    <label for="price"><b>Price</b></label>
-    <input type="number" placeholder="Price" name="price" id="price" required>
-    <hr>
+    <div class="form-group form-floating mb-3" style="width:40%;">
+        <input name="players" class="form-control" type="number">
+        <label for="floatingName">Players</label>
+        @if ($errors->has('players'))
+            <span class="text-danger text-left">{{ $errors->first('players') }}</span>
+        @endif
+    </div>
 
-    <button type="submit" class="registerbtn">Create</button>
+    <div class="form-group form-floating mb-3" style="width:40%;">
+        <input name="price" class="form-control" type="number">
+        <label for="floatingName">Price</label>
+        @if ($errors->has('price'))
+            <span class="text-danger text-left">{{ $errors->first('price') }}</span>
+        @endif
+    </div>
+
+    <button class="btn btn-lg btn-primary" style="width:20%;" type="submit">Create</button>
   </div>
 </form>
 @endsection

@@ -19,8 +19,10 @@ window.Vue = require('vue').default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('home-component', require('./components/HomeComponent.vue').default);
+Vue.component('games-component', require('./components/GamesComponent.vue').default);
 Vue.component('experiences-component', require('./components/ExperiencesComponent.vue').default);
+Vue.component('last-reserve-component', require('./components/LastReserveComponent.vue').default);
+Vue.component('rooms-component', require('./components/RoomsComponent.vue').default);
 
 
 /**

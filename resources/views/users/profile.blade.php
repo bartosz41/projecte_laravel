@@ -34,7 +34,28 @@
                     <div class="card-body">
                       <p class="mb-4"><span class="text-primary font-italic me-1">Experiences</span> History
                       </p>
-                        <experiences-component></experiences-component>
+                      @foreach(auth()->user()->valorations as $valoration)
+                        <div>
+                          <form method="POST" action="/save-valoration">
+                              <p class="mb-1 fs-3">{{$valoration->id}}</p>
+                              <input type="hidden" name="valoration_id" value="{{old('commentary',$valoration->id)}}">
+                              <hr>
+                              @csrf
+                              <div class="form-group form-floating mb-3" style="width:40%;">
+                                  <input type="text" value="{{old('commentary',$valoration->commentary)}}" class="form-control" name="commentary" placeholder="Commentary" required="required" autofocus>
+                                  <label for="floatingName">Commentary</label>
+                              </div>
+              
+                              <div class="form-group form-floating mb-3" style="width:40%;">
+                                  <input type="number" value="{{old('points',$valoration->points)}}" max="5" min="0" class="form-control" name="points" placeholder="Points" required="required" autofocus>
+                                  <label for="floatingName">Points</label>
+                              </div>
+              
+                              <button class="btn btn-success ms-1" type="submit">Save</button>
+                          </form>
+                          <hr>
+                        </div>
+                      @endforeach
                     </div>
                   </div>
                 </div>
@@ -93,6 +114,9 @@
               </div>
             </div>
           </section>
+          <script>
+            window.posts = @json(auth()->user()->id);
+          </script>
         @endauth
 
         @guest

@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 use App\Models\Valoration;
+use App\Models\Reserve;
 
 class User extends Authenticatable
 {
@@ -66,4 +67,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Valoration::class);
     }
+
+    public function reserves()
+    {
+        return $this->hasMany(Reserve::class);
+    }
+
 }
