@@ -4,8 +4,8 @@
     <div class="bg-light p-5 rounded" id="app">
         @auth
         <section style="background-color: #eee;">
-            <div class="container py-5">
-              <div class="row">
+            <div class="container" style="padding:0px;">
+              <div class="row" style="background-color:	#DCDCDC;padding-top:10px;">
                 <div class="col">
                   <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
                     <ol class="breadcrumb mb-0">
@@ -15,13 +15,12 @@
                   </nav>
                 </div>
               </div>
-          
+            <center>
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12" style="background-color:#A9A9A9;padding:10px;">
                   <div class="card mb-4 mb-md-0">
-                    <div class="card-body text-center">
+                    <div class="card-body text-center" style="background-color:#D3D3D3;padding:10px;">
                       <h5 class="my-3">{{auth()->user()->name}}</h5>
-                      <p class="text-muted mb-1">{{auth()->user()->role}}</p>
                       <div class="d-flex justify-content-center mb-2">
                         <a type="button" href="/edit-user/{{auth()->user()->id}}" class="btn btn-primary ms-1">Edit</a>
                         <a type="button" href="/delete-user/{{auth()->user()->id}}" class="btn btn-outline-danger ms-1">Delete</a>
@@ -29,41 +28,11 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="card mb-4 mb-md-0">
-                    <div class="card-body">
-                      <p class="mb-4"><span class="text-primary font-italic me-1">Experiences</span> History
-                      </p>
-                      @foreach(auth()->user()->valorations as $valoration)
-                        <div>
-                          <form method="POST" action="/save-valoration">
-                              <p class="mb-1 fs-3">{{$valoration->id}}</p>
-                              <input type="hidden" name="valoration_id" value="{{old('commentary',$valoration->id)}}">
-                              <hr>
-                              @csrf
-                              <div class="form-group form-floating mb-3" style="width:40%;">
-                                  <input type="text" value="{{old('commentary',$valoration->commentary)}}" class="form-control" name="commentary" placeholder="Commentary" required="required" autofocus>
-                                  <label for="floatingName">Commentary</label>
-                              </div>
-              
-                              <div class="form-group form-floating mb-3" style="width:40%;">
-                                  <input type="number" value="{{old('points',$valoration->points)}}" max="5" min="0" class="form-control" name="points" placeholder="Points" required="required" autofocus>
-                                  <label for="floatingName">Points</label>
-                              </div>
-              
-                              <button class="btn btn-success ms-1" type="submit">Save</button>
-                          </form>
-                          <hr>
-                        </div>
-                      @endforeach
-                    </div>
-                  </div>
-                </div>
               </div>
               <div class="row" style="margin-top: 10px;">
-                <div class="col-lg-12">
+                <div class="col-lg-12" style="background-color:#A9A9A9;padding:10px;">
                   <div class="card mb-4">
-                    <div class="card-body">
+                    <div class="card-body" style="background-color:#D3D3D3;padding:10px;">
                       <div class="row">
                         <div class="col-sm-3">
                           <p class="mb-0">Name</p>
@@ -112,6 +81,37 @@
                   </div>
                 </div>
               </div>
+              <div class="col-md-12" style="background-color:#A9A9A9;padding:10px;margin-top:10px;">
+                <div class="card mb-4 mb-md-0">
+                  <div class="card-body">
+                    <p class="mb-4"><span class="text-dark me-1">Experiences - history</span> 
+                    </p>
+                    @foreach(auth()->user()->valorations as $valoration)
+                      <div style="background-color:#D3D3D3;padding:10px;">
+                        <form method="POST" action="/save-valoration">
+                            <p class="mb-1 fs-3">{{$valoration->id}}</p>
+                            <input type="hidden" name="valoration_id" value="{{old('commentary',$valoration->id)}}">
+                            <hr>
+                            @csrf
+                            <div class="form-group form-floating mb-3" style="width:40%;">
+                                <input type="text" minlength="0" maxlength="150" value="{{old('commentary',$valoration->commentary)}}" class="form-control" name="commentary" placeholder="Commentary" required="required" autofocus>
+                                <label for="floatingName">Commentary</label>
+                            </div>
+            
+                            <div class="form-group form-floating mb-3" style="width:40%;">
+                                <input type="number" value="{{old('points',$valoration->points)}}" max="5" min="0" class="form-control" name="points" placeholder="Points" required="required" autofocus>
+                                <label for="floatingName">Points</label>
+                            </div>
+            
+                            <button class="btn btn-success ms-1" type="submit">Save</button>
+                        </form>
+                        <hr>
+                      </div>
+                    @endforeach
+                  </div>
+                </div>
+              </div>
+            </center>
             </div>
           </section>
           <script>

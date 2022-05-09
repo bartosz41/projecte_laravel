@@ -28,6 +28,6 @@ Route::get('room-images',[RoomsController::class,'get_images']);
 
 Route::get('rooms',[RoomsController::class,'get']);
 
-Route::get('last-reserve',[ReserveController::class,'get_last']);
+Route::get('last-reserve/{userid}',[ReserveController::class,'get_last']);
 
 Route::get('user/{userid}',[UsersController::class,'get']);

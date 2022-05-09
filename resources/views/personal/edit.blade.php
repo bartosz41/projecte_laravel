@@ -21,7 +21,7 @@
 
     <input type="hidden" name="staff_id" value="{{$staff->id}}">
     <div class="form-group form-floating mb-3" style="width:40%;">
-      <input name="name" class="form-control" value="{{old('name',$staff->name)}}" type="text">
+      <input name="name" minlength="0" maxlength="50" class="form-control" value="{{old('name',$staff->name)}}" type="text">
       <label for="floatingName">Name</label>
       @if ($errors->has('name'))
           <span class="text-danger text-left">{{ $errors->first('name') }}</span>
@@ -29,7 +29,7 @@
   </div>
 
   <div class="form-group form-floating mb-3" style="width:40%;">
-    <input name="surname" class="form-control" value="{{old('surname',$staff->surname)}}" type="text">
+    <input name="surname" minlength="0" maxlength="50" class="form-control" value="{{old('surname',$staff->surname)}}" type="text">
     <label for="floatingName">Surname</label>
     @if ($errors->has('surname'))
         <span class="text-danger text-left">{{ $errors->first('surname') }}</span>
@@ -37,7 +37,7 @@
 </div>
 
 <div class="form-group form-floating mb-3" style="width:40%;">
-  <input name="dni" class="form-control" value="{{old('dni',$staff->dni)}}" type="text">
+  <input name="dni" maxlength="9" minlength="0" class="form-control" value="{{old('dni',$staff->dni)}}" type="text">
   <label for="floatingName">DNI</label>
   @if ($errors->has('dni'))
       <span class="text-danger text-left">{{ $errors->first('dni') }}</span>

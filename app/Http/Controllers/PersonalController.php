@@ -23,10 +23,13 @@ class PersonalController extends Controller
     }
 
     public function update(Request $request,$staffid){
+        $validated=$request->validate(['name'=>'max:50','surname'=>'max:50','dni'=>'max:9']);
         $data = $request->all();
         $staff = Personal::find($staffid);
         if(isset($data['dni'])){
-            $staff->dni = $data['dni'];
+            if($this->dni($data['dni'])){
+                $staff->dni = $data['dni'];
+            }
         }
         if(isset($data['name'])){
             $staff->name = $data['name'];
@@ -45,15 +48,36 @@ class PersonalController extends Controller
     }
 
     public function store(Request $request){
-        $validated=$request->validate(['name'=>'required','surname'=>'required','dni'=>'required']);
+        $validated=$request->validate(['name'=>'required|max:50','surname'=>'required|max:50','dni'=>'required|max:9']);
 
         $req = request()->all();
         $staff = new Personal();
-        $staff->name=$req['name'];
-        $staff->surname=$req['surname'];
-        $staff->dni=$req['dni'];
-
+        if(isset($req['name'])){
+            $staff->name=$req['name'];
+        }
+        if(isset($req['surname'])){
+            $staff->surname=$req['surname'];
+        }
+        if(isset($req['dni'])){
+            if($this->dni($req['dni'])){
+                $staff->dni=$req['dni'];
+            }
+        }
+        
         $staff->save();
         return redirect('/staff-list');
     }
+
+    function dni($dni){
+        $letter = substr($dni, -1);
+        $numbers = substr($dni, 0, -1);
+        $valid;
+        if (substr("TRWAGMYFPDXBNJZSQVHLCKE", $numbers%23, 1) == $letter && strlen($letter) == 1 && strlen ($numbers) == 8 ){
+          $valid=true;
+        }else{
+          $valid=false;
+        }
+        return $valid;
+    }
+
 }

@@ -36,7 +36,7 @@
         <div class="form-group form-floating mb-3" style="width:40%;">
             <select type="text" class="form-control" name="game_id" value="{{ old('game_id',$reserve->game_id) }}" placeholder="Game" required="required" autofocus>
                 @foreach($games as $game)
-                <option value="{{$game->id}}">{{$game->name}}</option>
+                <option value="{{$game->id}}">{{$game->name}} ({{$game->price}}€)</option>
                 @endforeach
             </select>
             <label for="floatingName">Game</label>

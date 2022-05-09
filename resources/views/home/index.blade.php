@@ -1,12 +1,18 @@
 @extends('layouts.app-master')
 
 @section('content')
-    <div class="bg-light p-5 rounded">
+    <div class="bg-light p-5 rounded" style="margin-top:10px;">
         <div id="app">
         @auth
         <h1>Dashboard</h1>
+        <hr>
+        <br>
             <!--<last-reserve-component></last-reserve-component>-->
-
+            <h3>Last reserve</h3>
+        <last-reserve-component></last-reserve-component>
+        <script>
+            window.user_id = @json(auth()->user()->id);
+        </script>
         @endauth
 
         @guest

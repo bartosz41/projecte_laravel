@@ -42,7 +42,7 @@ class UsersController extends Controller
     }
 
     public function save_edit_user(Request $req,$userid){
-        //$validated = $this->validateUser($req);
+        $validated=$request->validate(['name'=>'max:50','organization'=>'max:50','phone'=>'max:9','country'=>'max:50']);
         $data = $req->all();
         $user = User::find($userid);
         if(isset($req['name'])){$user->name = $req['name'];}

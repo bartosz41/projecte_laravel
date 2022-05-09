@@ -16,7 +16,7 @@
         </div>
 
         <div class="form-group form-floating mb-3" style="width:20%;">
-            <input id="dni" type="text" class="form-control" name="dni" value="{{ old('dni') }}" placeholder="DNI" required="required" autofocus>
+            <input maxlength="9" minlength="0" id="dni" type="text" class="form-control" name="dni" value="{{ old('dni') }}" placeholder="DNI" required="required" autofocus>
             <label for="floatingName">DNI</label>
             @if ($errors->has('dni'))
                 <span class="text-danger text-left">{{ $errors->first('dni') }}</span>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="form-group form-floating mb-3" style="width:20%;">
-            <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Name" required="required" autofocus>
+            <input maxlength="50" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Name" required="required" autofocus>
             <label for="floatingName">Name</label>
             @if ($errors->has('name'))
                 <span class="text-danger text-left">{{ $errors->first('name') }}</span>
@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-group form-floating mb-3" style="width:20%;">
-            <input type="text" class="form-control" name="organization" value="{{ old('organization') }}" placeholder="Organization" required="required" autofocus>
+            <input maxlength="50" type="text" class="form-control" name="organization" value="{{ old('organization') }}" placeholder="Organization" required="required" autofocus>
             <label for="floatingName">Organization</label>
             @if ($errors->has('organization'))
                 <span class="text-danger text-left">{{ $errors->first('organization') }}</span>
@@ -40,7 +40,7 @@
         </div>
 
         <div class="form-group form-floating mb-3" style="width:20%;">
-            <input type="text" class="form-control" name="phone" value="{{ old('phone') }}" placeholder="Phone" required="required" autofocus>
+            <input minlength="9" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" maxlength="9" type="tel" class="form-control" name="phone" value="{{ old('phone') }}" placeholder="Phone" required="required" autofocus>
             <label for="floatingName">Phone</label>
             @if ($errors->has('phone'))
                 <span class="text-danger text-left">{{ $errors->first('phone') }}</span>
@@ -48,7 +48,7 @@
         </div>
 
         <div class="form-group form-floating mb-3" style="width:20%;">
-            <input type="text" class="form-control" name="country" value="{{ old('country') }}" placeholder="Country" required="required" autofocus>
+            <input maxlength="50" type="text" class="form-control" name="country" value="{{ old('country') }}" placeholder="Country" required="required" autofocus>
             <label for="floatingName">Country</label>
             @if ($errors->has('country'))
                 <span class="text-danger text-left">{{ $errors->first('country') }}</span>
@@ -71,12 +71,48 @@
             @endif
         </div>
     </center>
+
         <button class="btn btn-lg btn-primary" style="width:20%;" id="submit" type="submit">Register</button>
 
         @include('auth.partials.copy')
     </form>
     <script>
         window.onload = function(){
+            // SUBMIT BUTTON
+            let submitBtn = document.getElementById('submit');
+
+            submitBtn.disabled = true;
+            
+            // FIELDS TO VALIDATE
+            let dniField = document.getElementById('dni');
+            dniField.addEventListener('input',()=>{
+                console.log("trigger");
+                nif(dniField.value);
+            })
+
+            function nif(dni) {
+                var number;
+                var char;
+                var letter;
+                var regular_expresion_dni;
+                
+                regular_expresion_dni = /^\d{8}[a-zA-Z]$/;
+                
+                if(regular_expresion_dni.test (dni) == true){
+                    number = dni.substr(0,dni.length-1);
+                    char = dni.substr(dni.length-1,1);
+                    number = number % 23;
+                    letter='TRWAGMYFPDXBNJZSQVHLCKET';
+                    letter=letter.substring(number,number+1);
+                    if (letter!=char.toUpperCase()) {
+                        submitBtn.disabled = true;
+                    }else{
+                        submitBtn.disabled = false;
+                    }
+                }else{
+                    submitBtn.disabled = true;
+                }
+            }
         }
     </script>
 @endsection

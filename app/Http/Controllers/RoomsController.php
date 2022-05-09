@@ -40,10 +40,13 @@ class RoomsController extends Controller
     }
 
     public function update(Request $request,$roomid){
+        $validated=$request->validate(['image'=>'required|max:300']);
         $data = $request->all();
         $room = Room::find($roomid);
         if(isset($data['image'])){
-            $room->image = $data['image'];
+            if($this->isValidUrl($data['image'])){
+                $room->image = $data['image'];
+            }
         }
         $room->save();
 
@@ -61,5 +64,12 @@ class RoomsController extends Controller
 
         $room->save();
         return redirect('/room-list');
+    }
+
+    function isValidUrl($url){
+        if (filter_var($url, FILTER_VALIDATE_URL) === FALSE) {
+            return false;
+        }
+        return true;
     }
 }

@@ -2,7 +2,9 @@
 
 @section('content')
 
-<h3 style="margin-top: 20px">My reserves</h3>
+
+<h3 style="margin-top: 20px;background-color:	#808080;padding:10px;color:white;">My reserves</h3>
+<div style="background-color:#D3D3D3;padding:10px;">
 <table class="table">
     <thead>
       <tr>
@@ -28,5 +30,5 @@
         @endforeach
       </tbody>
   </table>
-
+</div>
 @endsection

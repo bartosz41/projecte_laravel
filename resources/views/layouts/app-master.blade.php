@@ -28,7 +28,7 @@
     <!-- Custom styles for this template -->
     <link href="css/app.css" rel="stylesheet">
 </head>
-<body>
+<body style="background-color:	#303030">
 
     @include('layouts.partials.navbar')
 

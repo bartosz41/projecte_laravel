@@ -77,7 +77,7 @@
     <hr>
 
     <div class="form-group form-floating mb-3" style="width:40%;">
-        <input name="name" class="form-control" type="text">
+        <input name="name" maxlength="50" class="form-control" type="text">
         <label for="floatingName">Name</label>
         @if ($errors->has('name'))
             <span class="text-danger text-left">{{ $errors->first('name') }}</span>
@@ -85,7 +85,7 @@
     </div>
 
     <div class="form-group form-floating mb-3" style="width:40%;">
-        <input name="image" class="form-control" type="text">
+        <input name="image" maxlength="300" class="form-control" type="text">
         <label for="floatingName">Image (URL)</label>
         @if ($errors->has('image'))
             <span class="text-danger text-left">{{ $errors->first('image') }}</span>
@@ -93,7 +93,7 @@
     </div>
 
     <div class="form-group form-floating mb-3" style="width:40%;">
-        <input name="players" class="form-control" type="number">
+        <input name="players" min="0" max="12" class="form-control" type="number">
         <label for="floatingName">Players</label>
         @if ($errors->has('players'))
             <span class="text-danger text-left">{{ $errors->first('players') }}</span>
@@ -101,8 +101,8 @@
     </div>
 
     <div class="form-group form-floating mb-3" style="width:40%;">
-        <input name="price" class="form-control" type="number">
-        <label for="floatingName">Price</label>
+        <input name="price" min="0" max="100" class="form-control" type="number">
+        <label for="floatingName">Price (€)</label>
         @if ($errors->has('price'))
             <span class="text-danger text-left">{{ $errors->first('price') }}</span>
         @endif

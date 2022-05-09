@@ -8,6 +8,7 @@ use App\Models\Reserve;
 use App\Models\Game;
 use App\Models\Room;
 use App\Models\Valoration;
+use \Datetime;
 use App\Models\Personal;
 use Illuminate\Support\Facades\Auth;
 
@@ -71,12 +72,34 @@ class ReserveController extends Controller
     }
 
     public function configure(Request $request,$reserveid){
+        $validated=$request->validate(['players'=>'max:12|min:0','player_names'=>'max:200']);
+
         $reserve = Reserve::find($reserveid);
         $req = request()->all();
-        $reserve->date=$req['date'];
-        $reserve->players=$req['players'];
-        $reserve->player_names=$req['player_names'];
-        $reserve->game_id = $req['game_id'];
+        
+        if(isset($req['date'])){
+            if($this->isValid($req['date'],'Y-mm-dd H:i:s')){
+                $reserve->date=$req['date'];   
+            }
+        }
+
+        if(isset($req['players'])){
+            $reserve->players=$req['players'];
+        }
+        
+        if(isset($req['player_names'])){
+            $reserve->player_names=$req['player_names'];
+        }
+
+        if(isset($req['game_id'])){
+            $game = Game::find($req['gameid']);
+            if(isset($game)){
+                if($game){
+                    $reserve->game_id = $req['game_id'];
+                }
+            }
+        }
+        
         $reserve->save();
         $valoration = $reserve->valorations;
         $valoration->game_id = $reserve->game_id;
@@ -85,11 +108,16 @@ class ReserveController extends Controller
         return redirect('/');
     }
 
-    public function get_last()
+    public function get_last($id)
     {
         $user=User::find($id);
         $last_reserve = $user->reserves->last();
         return response()->json($last_reserve);
+    }
+
+    function isValid($date, $format = 'Y-m-d'){
+        $dt = DateTime::createFromFormat($format, $date);
+        return $dt && $dt->format($format) === $date;
     }
 
     public function store(Request $request,$clientid){
@@ -99,7 +127,11 @@ class ReserveController extends Controller
         $reserve = new Reserve();
         $reserve->name=$req['name'];
         $reserve->organization=$req['organization'];
-        $reserve->email=$req['email'];
+        if($this->validate_email($req['email'])){
+            $reserve->email=$req['email'];
+        }else{
+            return redirect('/');
+        }
         $reserve->phone=$req['phone'];
         $reserve->country=$req['country'];
 
@@ -116,5 +148,12 @@ class ReserveController extends Controller
         $valoration->save();
 
         return redirect('/reserve-list/'.$clientid);
+    }
+
+    function validate_email($email){
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return false;
+        }
+        return true;
     }
 }

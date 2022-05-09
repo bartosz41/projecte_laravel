@@ -27,7 +27,7 @@
                               <input type="hidden" value="{{$user->id}}" name="user_id">
                             @csrf
                     
-                            <div class="form-group form-floating mb-3" style="width:70%;">
+                            <div class="form-group form-floating mb-3" minlength="0" maxlength="50" style="width:70%;">
                                 <input type="text" class="form-control" name="name" value="{{ old('name',$user->name) }}" placeholder="Name"  autofocus>
                                 <label for="floatingName">Name</label>
                                 @if ($errors->has('name'))
@@ -36,7 +36,7 @@
                             </div>
                     
                             <div class="form-group form-floating mb-3" style="width:70%;">
-                                <input type="text" class="form-control" name="organization" value="{{ old('organization',$user->organization) }}" placeholder="Organization"  autofocus>
+                                <input type="text" class="form-control" minlength="0" maxlength="50" name="organization" value="{{ old('organization',$user->organization) }}" placeholder="Organization"  autofocus>
                                 <label for="floatingName">Organization</label>
                                 @if ($errors->has('organization'))
                                     <span class="text-danger text-left">{{ $errors->first('organization') }}</span>
@@ -44,15 +44,15 @@
                             </div>
                     
                             <div class="form-group form-floating mb-3" style="width:70%;">
-                                <input type="text" class="form-control" name="phone" value="{{ old('phone',$user->phone) }}" placeholder="Phone"  autofocus>
-                                <label for="floatingName">Phone</label>
+                              <input minlength="9" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" maxlength="9" type="tel" class="form-control" name="phone" value="{{ old('phone') }}" placeholder="Phone" required="required" autofocus>
+                              <label for="floatingName">Phone</label>
                                 @if ($errors->has('phone'))
                                     <span class="text-danger text-left">{{ $errors->first('phone') }}</span>
                                 @endif
                             </div>
                     
                             <div class="form-group form-floating mb-3" style="width:70%;">
-                                <input type="text" class="form-control" name="country" value="{{ old('country',$user->country) }}" placeholder="Country"  autofocus>
+                                <input type="text" class="form-control" minlength="0" maxlength="50" name="country" value="{{ old('country',$user->country) }}" placeholder="Country"  autofocus>
                                 <label for="floatingName">Country</label>
                                 @if ($errors->has('country'))
                                     <span class="text-danger text-left">{{ $errors->first('country') }}</span>

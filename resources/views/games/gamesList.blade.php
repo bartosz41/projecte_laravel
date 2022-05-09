@@ -14,7 +14,7 @@
 
 <h3 style="margin-top: 20px">Games</h3>
 
-<a class="btn btn-lg btn-primary" href="/new-game" style="width:20%;" type="submit">New Game +</a>
+<a class="btn btn-lg btn-primary" href="/new-game" style="width:20%;" type="submit"> + New Game</a>
 
 <table class="table">
     <thead>

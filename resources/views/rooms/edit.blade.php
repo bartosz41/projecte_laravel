@@ -22,7 +22,7 @@
     <input type="hidden" name="room_id" value="{{$room->id}}">
 
     <div class="form-group form-floating mb-3" style="width:40%;">
-        <input name="image" class="form-control" value="{{old('image',$room->image)}}" type="text">
+        <input name="image" maxlength="300" class="form-control" value="{{old('image',$room->image)}}" type="text" required>
         <label for="floatingName">Image (URL)</label>
         @if ($errors->has('image'))
             <span class="text-danger text-left">{{ $errors->first('image') }}</span>

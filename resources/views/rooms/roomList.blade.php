@@ -13,7 +13,7 @@
 
  <h3 style="margin-top: 20px">Rooms</h3>
 
- <a class="btn btn-lg btn-primary" href="/new-room" style="width:20%;" type="submit">New Room +</a>
+ <a class="btn btn-lg btn-primary" href="/new-room" style="width:20%;" type="submit"> + New Room</a>
 
 
 <table class="table">

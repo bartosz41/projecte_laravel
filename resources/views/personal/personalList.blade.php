@@ -13,7 +13,7 @@
 
 <h3 style="margin-top: 20px">Staff</h3>
 
-<a class="btn btn-lg btn-primary" href="/new-personal" style="width:20%;" type="submit">Add Staff +</a>
+<a class="btn btn-lg btn-primary" href="/new-personal" style="width:20%;" type="submit"> + Add Staff</a>
 
 <table class="table">
   <thead>
