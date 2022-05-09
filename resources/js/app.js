@@ -1,3 +1,10 @@
+import Vue from 'vue'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+
+// Import Bootstrap and BootstrapVue CSS files (order is important)
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -7,6 +14,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue').default;
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -23,6 +31,12 @@ Vue.component('games-component', require('./components/GamesComponent.vue').defa
 Vue.component('experiences-component', require('./components/ExperiencesComponent.vue').default);
 Vue.component('last-reserve-component', require('./components/LastReserveComponent.vue').default);
 Vue.component('rooms-component', require('./components/RoomsComponent.vue').default);
+Vue.component('slider-component', require('./components/SliderComponent.vue').default);
+
+// Make BootstrapVue available throughout your project
+Vue.use(BootstrapVue)
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin)
 
 
 /**

@@ -12,7 +12,7 @@
 
     <center>
     <div class="form-group form-floating mb-3" style="width:20%;">
-        <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Username" required="required" autofocus>
+        <input type="email" class="form-control" name="username" value="{{ old('username') }}" placeholder="Username" required="required" autofocus>
         <label for="floatingName">Email</label>
         @if ($errors->has('username'))
             <span class="text-danger text-left">{{ $errors->first('username') }}</span>
@@ -33,7 +33,7 @@
         <input type="checkbox" name="remember" value="1">
     </div>
 
-    <button class="btn btn-lg btn-primary" style="width:20%;" type="submit">Login</button>
+    <button class="btn btn-lg btn-primary" style="width:20%;" id="submit" type="submit">Login</button>
 
     @include('auth.partials.copy')
 </form>

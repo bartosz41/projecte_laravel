@@ -18,6 +18,13 @@ class RoomsController extends Controller
         return response()->json($room_images);
     }
 
+    public function get(Request $request)
+    {
+        $room_images = [];
+        $rooms = Room::all();
+        return response()->json($rooms);
+    }
+
     public function showOne($roomid){
         return view('rooms.show')->with(['room'=>Room::find($roomid)]);
     }

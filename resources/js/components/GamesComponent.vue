@@ -6,8 +6,8 @@
                 <img :src="attr['game'].image" alt="Game" style="max-width:400px;max-height:300px;border:2px solid gray;">
                 <p class="fs-3 fw-bold" style="padding-top:20px;">Name: {{attr['game'].name}}</p>
                 <div class="fs-4">
-                    <p>Players: {{attr['game'].players}}</p>
-                    <p>Price: {{attr['game'].price}}</p>
+                    <p>Max Players: {{attr['game'].players}}</p>
+                    <p>Price: {{attr['game'].price}}€</p>
                 </div>
                 <br>
                 <div>
@@ -18,29 +18,29 @@
                             <div>
                                 <p class="fs-4">{{valoration.client_name}}</p>
                                 <p class="fs-4" v-if="valoration.points == 1">
-                                    <img src="https://www.pngplay.com/wp-content/uploads/8/Gold-Vector-Star-Download-Free-PNG.png" style="height: 25px;width: 25px;">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
                                 </p>
                                 <p class="fs-4" v-if="valoration.points == 2">
-                                    <img src="https://www.pngplay.com/wp-content/uploads/8/Gold-Vector-Star-Download-Free-PNG.png" style="height: 25px;width: 25px;">
-                                    <img src="https://www.pngplay.com/wp-content/uploads/8/Gold-Vector-Star-Download-Free-PNG.png" style="height: 25px;width: 25px;">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
                                 </p>
                                 <p class="fs-4" v-if="valoration.points == 3">
-                                    <img src="https://www.pngplay.com/wp-content/uploads/8/Gold-Vector-Star-Download-Free-PNG.png" style="height: 25px;width: 25px;">
-                                    <img src="https://www.pngplay.com/wp-content/uploads/8/Gold-Vector-Star-Download-Free-PNG.png" style="height: 25px;width: 25px;">
-                                    <img src="https://www.pngplay.com/wp-content/uploads/8/Gold-Vector-Star-Download-Free-PNG.png" style="height: 25px;width: 25px;">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
                                 </p>
                                 <p class="fs-4" v-if="valoration.points == 4">
-                                    <img src="https://www.pngplay.com/wp-content/uploads/8/Gold-Vector-Star-Download-Free-PNG.png" style="height: 25px;width: 25px;">
-                                    <img src="https://www.pngplay.com/wp-content/uploads/8/Gold-Vector-Star-Download-Free-PNG.png" style="height: 25px;width: 25px;">
-                                    <img src="https://www.pngplay.com/wp-content/uploads/8/Gold-Vector-Star-Download-Free-PNG.png" style="height: 25px;width: 25px;">
-                                    <img src="https://www.pngplay.com/wp-content/uploads/8/Gold-Vector-Star-Download-Free-PNG.png" style="height: 25px;width: 25px;">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
                                 </p>
                                 <p class="fs-4" v-if="valoration.points == 5">
-                                    <img src="https://www.pngplay.com/wp-content/uploads/8/Gold-Vector-Star-Download-Free-PNG.png" style="height: 25px;width: 25px;">
-                                    <img src="https://www.pngplay.com/wp-content/uploads/8/Gold-Vector-Star-Download-Free-PNG.png" style="height: 25px;width: 25px;">
-                                    <img src="https://www.pngplay.com/wp-content/uploads/8/Gold-Vector-Star-Download-Free-PNG.png" style="height: 25px;width: 25px;">
-                                    <img src="https://www.pngplay.com/wp-content/uploads/8/Gold-Vector-Star-Download-Free-PNG.png" style="height: 25px;width: 25px;">
-                                    <img src="https://www.pngplay.com/wp-content/uploads/8/Gold-Vector-Star-Download-Free-PNG.png" style="height: 25px;width: 25px;">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
                                 </p>
                                 <p class="fs-5">{{valoration.commentary}}</p>
                             </div>
