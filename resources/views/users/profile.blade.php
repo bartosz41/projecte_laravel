@@ -94,7 +94,7 @@
                             <hr>
                             @csrf
                             <div class="form-group form-floating mb-3" style="width:40%;">
-                                <input type="text" minlength="0" maxlength="150" value="{{old('commentary',$valoration->commentary)}}" class="form-control" name="commentary" placeholder="Commentary" required="required" autofocus>
+                                <input type="text" minlength="0" maxlength="50" value="{{old('commentary',$valoration->commentary)}}" class="form-control" name="commentary" placeholder="Commentary" required="required" autofocus>
                                 <label for="floatingName">Commentary</label>
                             </div>
             

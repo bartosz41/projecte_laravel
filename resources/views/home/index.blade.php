@@ -1,7 +1,7 @@
 @extends('layouts.app-master')
 
 @section('content')
-    <div class="bg-light p-5 rounded" style="margin-top:10px;">
+    <div class="p-5 rounded" style="margin-top:10px;">
         <div id="app">
         @auth
         <h1>Dashboard</h1>

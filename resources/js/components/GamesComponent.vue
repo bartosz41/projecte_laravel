@@ -13,36 +13,20 @@
                 <div>
                     <p class="fs-2 fw-bold" style="padding-top:20px;">Last valorations</p>
                     <span v-if="!attr['valorations'].length">There are no valorations yet.</span>
-                    <div class="row justify-content-around">
-                        <div style="border:2px solid gray;margin-bottom: 20px;background-color:#D3D3D3;" class="col-md-2 d-flex" v-for="valoration in attr['valorations']">
-                            <div>
-                                <p class="fs-4">{{valoration.client_name}}</p>
-                                <p class="fs-4" v-if="valoration.points == 1">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
-                                </p>
-                                <p class="fs-4" v-if="valoration.points == 2">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
-                                </p>
-                                <p class="fs-4" v-if="valoration.points == 3">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
-                                </p>
-                                <p class="fs-4" v-if="valoration.points == 4">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
-                                </p>
-                                <p class="fs-4" v-if="valoration.points == 5">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/001/189/063/non_2x/star-rounded-png.png" style="height: 25px;width: 25px;">
-                                </p>
-                                <p class="fs-5">{{valoration.commentary}}</p>
+                    <div class="row justify-content-around" style="max-height:600px;">
+                        <div class="h-100 container d-flex justify-content-center align-items-center col-md-2" style="border:2px solid gray;margin-bottom: 20px;background-color:#D3D3D3;" v-for="valoration in attr['valorations']">
+                            <div class="card p-3">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="ratings">
+                                        <i class="fa fa-star rating-color"></i>
+                                        <i class="fa fa-star rating-color"></i>
+                                        <i class="fa fa-star rating-color"></i>
+                                        <i class="fa fa-star rating-color"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <h5 class="review-count">{{valoration.client_name}}</h5>
+                                <h6 class="review-count">{{valoration.commentary}}</h6>
                             </div>
                         </div>
                     </div>
