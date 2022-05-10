@@ -12,11 +12,11 @@
     </div>
  @endif
 
-<h3 style="margin-top: 20px">Games</h3>
+<h3 style="margin-top: 20px" class="text-light">Games</h3>
 
-<a class="btn btn-lg btn-primary" href="/new-game" style="width:20%;" type="submit"> + New Game</a>
+<a class="btn btn-lg btn-primary text-light" href="/new-game" style="width:20%;" type="submit"> + New Game</a>
 
-<table class="table">
+<table class="table text-light">
     <thead>
       <tr>
         <th scope="col">#</th>

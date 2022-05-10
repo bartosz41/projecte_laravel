@@ -41,7 +41,15 @@ class ReserveController extends Controller
             }
             
         }
+        $reserve->validated = 1;
         $reserve->save();
+
+        $room = Room::find($data['room_id']);
+        $room->staff_id = $data['personal_id'];
+        $room->game_id = $data['game_id'];
+
+        $room->save();
+
         return redirect('/reserve-list-all');
     }
 
@@ -92,7 +100,7 @@ class ReserveController extends Controller
         }
 
         if(isset($req['game_id'])){
-            $game = Game::find($req['gameid']);
+            $game = Game::find($req['game_id']);
             if(isset($game)){
                 if($game){
                     $reserve->game_id = $req['game_id'];

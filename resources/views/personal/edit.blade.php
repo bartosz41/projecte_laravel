@@ -16,7 +16,7 @@
   <form action="/update-staff/{{$staff->id}}" method="POST">
   @csrf
   <div class="container" style="margin-top: 20px">
-    <h3>Edit {{$staff->name}}</h3>
+    <h3 class="text-light">Edit {{$staff->name}}</h3>
     <hr>
 
     <input type="hidden" name="staff_id" value="{{$staff->id}}">

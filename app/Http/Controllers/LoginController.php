@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Services\Login\RememberMeExpiration;
-
+use App\Models\User;
 class LoginController extends Controller
 {
     use RememberMeExpiration;

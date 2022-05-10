@@ -11,9 +11,9 @@
     </div>
  @endif
 
- <h3 style="margin-top: 20px">Users</h3>
+ <h3 class="text-light" style="margin-top: 20px">Users</h3>
 
-<table class="table">
+<table class="table text-light">
   <thead>
     <tr>
       <th scope="col">Email</th>

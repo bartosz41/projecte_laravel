@@ -73,7 +73,7 @@
 <form action="/create-game" method="POST">
   @csrf
   <div class="container">
-    <h1>Create a game</h1>
+    <h1 class="text-light">Create a game</h1>
     <hr>
 
     <div class="form-group form-floating mb-3" style="width:40%;">

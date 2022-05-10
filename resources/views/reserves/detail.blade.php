@@ -5,7 +5,7 @@
 
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
-        <h1 class="h3 mb-3 fw-normal centered" style="margin-top: 100px">Configure reserve</h1>
+        <h1 class="h3 mb-3 fw-normal centered text-light" style="margin-top: 100px">Configure reserve</h1>
 
         <input type="hidden" name="user_id">
 

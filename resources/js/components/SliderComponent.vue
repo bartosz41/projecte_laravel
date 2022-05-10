@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="rooms.length > 0">
     <b-carousel
       id="carousel-1"
       v-model="slide"
@@ -23,9 +23,6 @@
 
 
     </b-carousel>
-
-    <p class="mt-4">
-    </p>
   </div>
 </template>
 

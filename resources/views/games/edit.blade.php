@@ -16,7 +16,7 @@
   <form action="/update-game/{{$game->id}}" method="POST">
   @csrf
   <div class="container" style="margin-top: 20px">
-    <h1>Edit {{$game->name}}</h1>
+    <h1 class="text-light">Edit {{$game->name}}</h1>
     <hr>
 
     <input type="hidden" name="game_id" value="{{$game->id}}">

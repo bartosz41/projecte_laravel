@@ -5,7 +5,7 @@
 
 <form method="post" action="/validate-reserve-save/{{$reserve->id}}">
 
-    <h1 class="h3 mb-3 fw-normal centered" style="margin-top: 100px">Validate reserve</h1>
+    <h1 class="h3 mb-3 fw-normal centered text-light" style="margin-top: 100px">Validate reserve</h1>
     @csrf
     <hr>
 
@@ -46,7 +46,7 @@
             @endif
         </div>
         <div class="col-md-6 form-group form-floating mb-3">
-            <label for="floatingName" style="margin-left: 5px">Finished</label>
+            <label for="floatingName" class="text-light" style="margin-left: 5px">Finished</label>
             @if($reserve->finished === 0)
                 <input class="" type="checkbox" name="finished" value="false">
             @endif

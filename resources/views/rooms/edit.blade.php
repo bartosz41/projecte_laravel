@@ -16,7 +16,7 @@
   <form action="/update-room/{{$room->id}}" method="POST">
   @csrf
   <div class="container" style="margin-top: 20px">
-    <h1>Edit {{$room->id}}</h1>
+    <h1 class="text-light" >Edit {{$room->id}}</h1>
     <hr>
 
     <input type="hidden" name="room_id" value="{{$room->id}}">

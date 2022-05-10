@@ -2,8 +2,8 @@
 
 @section('content')
 
-<h3 style="margin-top: 20px">All reserves</h3>
-<table class="table">
+<h3 class="text-light" style="margin-top: 20px">All reserves</h3>
+<table class="table text-light">
     <thead>
       <tr>
         <th scope="col">Name</th>

@@ -44,7 +44,7 @@
                             </div>
                     
                             <div class="form-group form-floating mb-3" style="width:70%;">
-                              <input minlength="9" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" maxlength="9" type="tel" class="form-control" name="phone" value="{{ old('phone') }}" placeholder="Phone" required="required" autofocus>
+                              <input minlength="9" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" maxlength="9" type="tel" class="form-control" name="phone" value="{{ old('phone',$user->phone) }}" placeholder="Phone" required="required" autofocus>
                               <label for="floatingName">Phone</label>
                                 @if ($errors->has('phone'))
                                     <span class="text-danger text-left">{{ $errors->first('phone') }}</span>

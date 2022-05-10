@@ -16,7 +16,7 @@
   <form action="/update-user-admin/{{$user->id}}" method="POST">
   @csrf
   <div class="container" style="margin-top: 20px">
-    <h1>Edit {{$user->id}}</h1>
+    <h1 class="text-light">Edit {{$user->id}}</h1>
     <hr>
 
     <input type="hidden" name="user_id" value="{{$user->id}}">

@@ -49,7 +49,7 @@ class GamesController extends Controller
             $game->players = $data['players'];
         }
         if(isset($data['image'])){
-            if($this->isValidUrl($req['image'])){
+            if($this->isValidUrl($request['image'])){
                 $game->image = $data['image'];
             }else{
                 return redirect('/new-game');

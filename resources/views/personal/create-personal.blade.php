@@ -16,7 +16,7 @@
 <form action="/create-personal" method="POST" id="form">
   @csrf
   <div class="container" style="margin-top:20px;">
-    <h1>Create staff</h1>
+    <h1 class="text-light">Create staff</h1>
     <hr>
 
     <div class="form-group form-floating mb-3" style="width:40%;">
