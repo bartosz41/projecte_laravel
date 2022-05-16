@@ -8,6 +8,25 @@ use App\Models\User;
 
 class GamesController extends Controller
 {
+
+    public function create_game(Request $request){
+        $validated=$request->validate(['name'=>'required|max:50','players'=>'required|max:12','price'=>'required|max:100']);
+        $req = request()->all();
+        if($this->isValidUrl($req['image'])){
+            $game = new Game();
+
+            if(isset($req['name'])){$game->name=$req['name'];}
+            if(isset($req['image'])){$game->image=$req['image'];}
+            if(isset($req['players']))$game->players=$req['players'];
+            if(isset($req['price']))$game->price=$req['price'];
+
+            $game->save();
+            return response()->json(["created" => "game_created"]);
+        }else{
+            return response()->json(["created" => "game_not_created"]);
+        }
+    }
+
     public function get(Request $request)
     {
         $games=Game::all();
@@ -61,26 +80,6 @@ class GamesController extends Controller
         $game->save();
 
         return redirect('/game-list');
-    }
-
-    public function store(Request $request){
-        $validated=$request->validate(['name'=>'required|max:50','players'=>'required|max:12','price'=>'required|max:100']);
-
-        $req = request()->all();
-        if($this->isValidUrl($req['image'])){
-            $game = new Game();
-            
-            if(isset($req['name'])){$game->name=$req['name'];}
-            if(isset($req['image'])){$game->image=$req['image'];}
-            if(isset($req['players']))$game->players=$req['players'];
-            if(isset($req['price']))$game->price=$req['price'];
-
-            $game->save();
-            return redirect('/game-list');
-        }else{
-            return redirect('/new-game');
-        }
-        
     }
 
     function isValidUrl($url){

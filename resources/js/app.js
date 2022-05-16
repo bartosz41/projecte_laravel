@@ -32,6 +32,9 @@ Vue.component('experiences-component', require('./components/ExperiencesComponen
 Vue.component('last-reserve-component', require('./components/LastReserveComponent.vue').default);
 Vue.component('rooms-component', require('./components/RoomsComponent.vue').default);
 Vue.component('slider-component', require('./components/SliderComponent.vue').default);
+Vue.component('create-game-component', require('./components/GamesCreateComponent.vue').default);
+Vue.component('edit-game-component', require('./components/GamesEditComponent.vue').default);
+
 
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)

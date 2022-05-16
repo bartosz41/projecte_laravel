@@ -24,6 +24,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('games',[GamesController::class,'get']);
 
+Route::post('create-staff',[PersonalController::class,'create']);
+
+Route::post('edit-staff',[PersonalController::class,'create']);
+
+Route::post('create-game',[GamesController::class,'create_game']);
+
+Route::post('edit-game',[GamesController::class,'edit_game']);
+
 Route::get('room-images',[RoomsController::class,'get_images']);
 
 Route::get('rooms',[RoomsController::class,'get']);

@@ -96,8 +96,6 @@ Route::get('/new-game',function(){
     return view('games.create-game');
 });
 
-Route::post('/create-game',[GamesController::class,'store']);
-
 Route::get('/game-list',[GamesController::class,'all']);
 
 Route::get('/delete-game/{gameid}',[GamesController::class,'deleteOne']);
