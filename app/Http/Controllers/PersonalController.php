@@ -8,6 +8,43 @@ use App\Models\Personal;
 class PersonalController extends Controller
 {
 
+    public function get_api(Request $request,$staffid){
+        $staff = Personal::find($staffid);
+        return response()->json($staff);
+    }
+
+    public function create_staff(Request $request){
+        $validated=$request->validate(['name'=>'required|max:50','surname'=>'required|max:12','dni'=>'required|max:100']);
+        $req = request()->all();
+
+        $staff = new Personal();
+
+        if(isset($req['name'])){$staff->name=$req['name'];}
+        if(isset($req['surname'])){$staff->surname=$req['surname'];}
+        if(isset($req['dni']))$staff->dni=$req['dni'];
+
+        $staff->save();
+        return response()->json(["created" => "staff_created"]);
+    }
+
+    public function edit_staff(Request $request){
+        $validated=$request->validate(['name'=>'max:50','surname'=>'max:12','dni'=>'max:100']);
+        $req = request()->all();
+        $staffid = $req['staff_id'];
+        $staff = Personal::find($staffid);
+        if(isset($staff)){
+
+            if(isset($req['name'])){$staff->name=$req['name'];}
+            if(isset($req['surname'])){$staff->surname=$req['surname'];}
+            if(isset($req['dni']))$staff->dni=$req['dni'];
+    
+            $staff->save();
+            return response()->json(["created" => "staff_saved"]);
+
+        }
+        return response()->json("no_staff");
+    }
+
     public function showOne($staffid){
         return view('personal.show')->with(['staff'=>Personal::find($staffid)]);
     }

@@ -34,6 +34,8 @@ Vue.component('rooms-component', require('./components/RoomsComponent.vue').defa
 Vue.component('slider-component', require('./components/SliderComponent.vue').default);
 Vue.component('create-game-component', require('./components/GamesCreateComponent.vue').default);
 Vue.component('edit-game-component', require('./components/GamesEditComponent.vue').default);
+Vue.component('create-staff-component', require('./components/StaffCreateComponent.vue').default);
+Vue.component('edit-staff-component', require('./components/StaffEditComponent.vue').default);
 
 
 // Make BootstrapVue available throughout your project

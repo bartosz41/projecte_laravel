@@ -9,6 +9,11 @@ use App\Models\User;
 class GamesController extends Controller
 {
 
+    public function get_api(Request $request,$gameid){
+        $game = Game::find($gameid);
+        return response()->json($game);
+    }
+
     public function create_game(Request $request){
         $validated=$request->validate(['name'=>'required|max:50','players'=>'required|max:12','price'=>'required|max:100']);
         $req = request()->all();
@@ -25,6 +30,28 @@ class GamesController extends Controller
         }else{
             return response()->json(["created" => "game_not_created"]);
         }
+    }
+
+    public function edit_game(Request $request){
+        $validated=$request->validate(['name'=>'max:50','players'=>'max:12','price'=>'max:100']);
+        $req = request()->all();
+        $gameid = $req['game_id'];
+        $game = Game::find($gameid);
+        if(isset($game)){
+            if($this->isValidUrl($req['image'])){
+
+                if(isset($req['name'])){$game->name=$req['name'];}
+                if(isset($req['image'])){$game->image=$req['image'];}
+                if(isset($req['players']))$game->players=$req['players'];
+                if(isset($req['price']))$game->price=$req['price'];
+    
+                $game->save();
+                return response()->json(["created" => "game_saved"]);
+            }else{
+                return response()->json(["created" => "game_not_saved"]);
+            }
+        }
+        return response()->json("no_game");
     }
 
     public function get(Request $request)
