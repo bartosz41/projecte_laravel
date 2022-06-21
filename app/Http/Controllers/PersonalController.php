@@ -14,7 +14,7 @@ class PersonalController extends Controller
     }
 
     public function create_staff(Request $request){
-        $validated=$request->validate(['name'=>'required|max:50','surname'=>'required|max:12','dni'=>'required|max:100']);
+        $validated=$request->validate(['name'=>'required|max:50','surname'=>'required|max:50','dni'=>'required|max:9']);
         $req = request()->all();
 
         $staff = new Personal();
@@ -28,7 +28,7 @@ class PersonalController extends Controller
     }
 
     public function edit_staff(Request $request){
-        $validated=$request->validate(['name'=>'max:50','surname'=>'max:12','dni'=>'max:100']);
+        $validated=$request->validate(['name'=>'max:50','surname'=>'max:50','dni'=>'max:9']);
         $req = request()->all();
         $staffid = $req['staff_id'];
         $staff = Personal::find($staffid);
